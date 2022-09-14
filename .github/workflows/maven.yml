@@ -2,4 +2,4 @@ name: Java and Selenide CI run
 
 on: [ push ]
 
-jobs: 
+jobs:
