@@ -1,3 +1,4 @@
+@Add_Product
 Feature: Add_Product
 
   Scenario Outline: User should be able to add product to the basket
