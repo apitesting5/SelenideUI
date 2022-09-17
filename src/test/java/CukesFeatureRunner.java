@@ -8,15 +8,15 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/features/AddProduct.feature"}
-        /**plugin = {"pretty", "html:target/cucumber-report.html"},
-        monochrome = true**/
+        features = {"src/test/resources/features"},
+        plugin = {"pretty", "html:target/cucumber-report.html"},
+        monochrome = true
 )
 
 public class CukesFeatureRunner {
     @BeforeClass
     public static void executeBeforeTests() {
-        Configuration.headless = false;
+        Configuration.headless = true;
         Configuration.browserSize = "1600x900";
         WebDriverManager.chromedriver().driverVersion("104").setup();
     }

@@ -14,3 +14,10 @@ jobs:
           distribution: 'adopt'
       - name: Run tests
         run: mvn test --file pom.xml
+      - name: Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Maven Tests
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
