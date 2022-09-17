@@ -14,8 +14,10 @@ jobs:
           distribution: 'adopt'
       - name: Run tests
         run: mvn test --file pom.xml
-      - name: Upload a Test Results
-        uses: actions/upload-artifact@v2.2.2
+      - name: Test Reporter
+        uses: dorny/test-reporter@v1.4.3
+        if: success() || failure()
         with:
-          name: Tests-report
-          path: target
+          name: Generate Report
+          path: "**/surefire-reports/TEST-*.xml"
+          reporter: java-junit

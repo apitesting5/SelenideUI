@@ -1,4 +1,4 @@
-Feature: Add Product to the Basket
+Feature: Add_Product
 
   Scenario Outline: User should be able to add product to the basket
     When I Login with Standard User

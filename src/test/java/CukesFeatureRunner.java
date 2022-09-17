@@ -18,7 +18,7 @@ public class CukesFeatureRunner {
     public static void executeBeforeTests() {
         Configuration.headless = true;
         Configuration.browserSize = "1600x900";
-        WebDriverManager.chromedriver().driverVersion("104").setup();
+        WebDriverManager.chromedriver().driverVersion("105").setup();
     }
 
     @AfterClass
