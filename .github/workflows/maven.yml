@@ -3,3 +3,22 @@ name: Java and Selenide CI run
 on: [ push ]
 
 jobs:
+  UI-API-Tests:
+    strategy:
+      matrix:
+        feature_name: [ Products, Login, Add_Product ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 16
+        uses: actions/setup-java@v3
+        with:
+          java-version: '16'
+          distribution: 'adopt'
+      - name: ${{ matrix.feature_name }}
+        run: mvn test --file pom.xml -Dcucumber.filter.tags=@${{ matrix.feature_name }}
+      - name: Upload a Test Results
+        uses: actions/upload-artifact@v2.2.2
+        with:
+          name: ${{ matrix.feature_name }}-report
+          path: target
